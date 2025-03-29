@@ -1,0 +1,72 @@
+$accordion-bg: #f8f9fa;
+$accordion-hover-bg: #b9b9b9;
+$accordion-border: #ddd;
+$accordion-active-bg: #c9c9c9;
+$accordion-active-text: #000;
+$accordion-transition: all 0.3s ease-in-out;
+
+.accordion {
+  width: clamp(50vw, 80vw, 90vw);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f3f3f3;
+  height: 63dvh;
+  overflow-y: scroll;
+}
+
+.accordion-item {
+  border: 1px solid #333;
+}
+
+.accordion-header {
+  margin: 0;
+}
+
+.accordion-button {
+  width: 100%;
+  text-align: left;
+  padding: 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &:hover {
+    background: $accordion-hover-bg;
+  }
+
+  &[aria-expanded="true"] {
+    background: $accordion-active-bg;
+    color: $accordion-active-text;
+  }
+}
+
+.accordion-icon {
+  transition: transform 0.1s ease;
+}
+
+.accordion-icon.rotate {
+  transform: rotate(180deg);
+}
+
+.accordion-collapse {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: $accordion-transition;
+}
+
+.accordion-collapse.show {
+  max-height: 200px;
+  opacity: 1;
+}
+
+.accordion-body {
+  padding: 12px;
+  background: #fff;
+}

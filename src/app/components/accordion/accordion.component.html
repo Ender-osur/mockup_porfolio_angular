@@ -1,0 +1,24 @@
+<section class="accordion">
+  <div class="accordion-item" *ngFor="let item of accordionItems; let i = index">
+    <header class="accordion-header">
+      <button
+        class="accordion-button"
+        (click)="toggleAccordion(i)"
+        [attr.aria-expanded]="isActive(i)"
+        [attr.aria-controls]="'accordion-content-' + i"
+      >
+        {{ item.title }}
+        <span class="accordion-icon" [class.rotate]="isActive(i)">▼</span>
+      </button>
+    </header>
+    <div
+      class="accordion-collapse"
+      [class.show]="isActive(i)"
+      [id]="'accordion-content-' + i"
+    >
+      <div class="accordion-body">
+        <div *ngFor="let time of item.content">{{ time }}</div>
+      </div>
+    </div>
+  </div>
+</section>
